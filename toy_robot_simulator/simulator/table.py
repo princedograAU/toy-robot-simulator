@@ -1,8 +1,11 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class Table:
     """Initializes table with default of 5x5"""
-    def __init__(self, x: int = 5, y: int = 5):
-        self.table_x = x
-        self.table_y = y
+    table_x: int
+    table_y: int
 
     def is_valid_move(self, x: int, y: int):
         """check if move is valid"""

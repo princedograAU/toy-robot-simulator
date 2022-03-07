@@ -1,6 +1,7 @@
 import os
 from abc import ABCMeta, abstractmethod
 
+# conditional import to help test single module
 if os.environ.get("TEST_ENABLED"):
     from .position import Position, InvalidPosition
     from .direction import Direction
@@ -14,6 +15,9 @@ class InvalidCommand(Exception):
 
 
 class BaseCommand(metaclass=ABCMeta):
+    """
+        Abstract Base Class
+    """
     _initial_args = []
 
     def __init__(self, initial_args=None):
@@ -28,11 +32,26 @@ class BaseCommand(metaclass=ABCMeta):
         self._initial_args = initial_args
 
     @abstractmethod
-    def action(self):
+    def action(self, dispatcher):
+        """
+            hook to bind action creator like robot with already available commands
+            :params: dispatcher
+        """
         pass
 
 
 class CommandPlace(BaseCommand):
+    """
+        Expects constructor params of format
+        <int>,<int>,<direction>
+
+        integer value should be in range of 0-table-size (0-5)
+        direction should be one of NORTH, SOUTH, EAST, WEST
+        example: 0,0,NORTH
+
+        :raises: InvalidPosition, if invalid PLACE arguments are passed
+        example: 0,0,UP or 0,A,NORTH or None
+    """
 
     @BaseCommand.initial_args.setter
     def initial_args(self, initial_args):

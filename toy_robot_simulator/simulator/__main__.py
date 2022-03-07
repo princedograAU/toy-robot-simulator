@@ -3,6 +3,9 @@ from simulator import Simulator
 
 
 def main():
+    """
+        run simulator until user enters "EXIT" command
+    """
     simulation = Simulator()
     flag = True
     while flag:
