@@ -2,7 +2,7 @@
 The application is a simulation of a toy robot moving on a square tabletop, 
 of dimensions 5 units x 5 units. 
 
-####POINTS TO REMEMBER:
+#### POINTS TO REMEMBER:
 - There are no other obstructions on the table surface.
 - The robot is free to roam around the surface of the table, but must be prevented from 
 falling to destruction. 
@@ -21,14 +21,14 @@ in any order, including another PLACE command.
 - Accepted Directions: NORTH, SOUTH, EAST, WEST
 
 
-####Accepted format
+#### Accepted format
     PLACE X,Y,F
     MOVE
     LEFT
     RIGHT
     REPORT
 
-####Examples
+#### Examples
     Example 1:
 
     PLACE 0,0,NORTH
@@ -72,4 +72,4 @@ in any order, including another PLACE command.
     Navigate to  tests directory and run `python -m unittest discover .`
 
 
-####Author: Prince Dogra 
+#### Author: Prince Dogra
